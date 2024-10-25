@@ -1,0 +1,57 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'dev.flutter.flutter-gradle-plugin' // Asegúrate de que este plugin esté al principio
+    id 'com.google.gms.google-services' // Debe ir después de otros plugins de aplicación
+}
+
+android {
+    namespace "com.example.prueba"  // Asegúrate de que este namespace sea el correcto para tu aplicación
+
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.prueba"
+        minSdkVersion 23
+        targetSdkVersion 34
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true // Habilita MultiDex si tienes más de 65K métodos
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true // Habilita la minificación para la versión de release
+            shrinkResources true // Habilita el encogimiento de recursos
+            // ProGuard no se usará, por lo que eliminamos la línea correspondiente
+        }
+        debug {
+            minifyEnabled false // Desactiva la minificación para la versión de debug
+            shrinkResources false // Desactiva el encogimiento de recursos para la versión de debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8 // Compatibilidad con Java 1.8
+        targetCompatibility JavaVersion.VERSION_1_8 // Compatibilidad con Java 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8' // Establece el target de la JVM a 1.8
+    }
+}
+
+dependencies {
+    implementation platform('com.google.firebase:firebase-bom:33.1.2') // Usa Firebase BOM para manejar las versiones
+    implementation 'com.google.firebase:firebase-analytics' // Agrega Firebase Analytics
+    implementation 'androidx.multidex:multidex:2.0.1' // Agrega soporte para MultiDex
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // Usa la versión de Kotlin especificada
+}
+
+repositories {
+    google() // Repositorio de Google
+    mavenCentral() // Repositorio central de Maven
+}
+
+// Aplica el plugin de Google Services al final para asegurarse de que se configure correctamente
+apply plugin: 'com.google.gms.google-services'

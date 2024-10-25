@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "36648132416",
+    "project_id": "prueba-39135",
+    "storage_bucket": "prueba-39135.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36648132416:android:883b2182c84876d8cb64a5",
+        "android_client_info": {
+          "package_name": "com.example.prueba"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlQ-jAmeg4-tKCN-kFoad77xudz1-A6XM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
